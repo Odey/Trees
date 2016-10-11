@@ -1,0 +1,43 @@
+
+/*The tree node has data, left child and right child 
+struct node
+{
+    int data;
+    node* left;
+    node* right;
+};
+
+*/
+int height(node * root)
+{
+  int h = 0;
+  int h1 = 0;
+  node *t = root;
+  while(t != NULL )
+  {
+      if (t->left != NULL)
+           t = t->left;
+      else if (t->right != NULL)
+          t= t->right;
+      else
+          break;
+      h++;
+  }
+    t= root;
+  while(t != NULL )
+  {
+      if (t->right != NULL)
+            t = t->right;
+      else if (t->left != NULL)
+          t= t->left;
+      else
+          break;
+      h1 += 1;
+  }
+    
+    if (h>h1)
+    {  return h ;}
+    else{
+        return h1;}
+}
+  
