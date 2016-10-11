@@ -1,0 +1,36 @@
+struct node
+{
+    int data;
+    node* left;
+    node* right;
+};
+
+*/
+
+void top_view(node * root)
+{
+ node *t = root;
+    int a[100];
+    int k,i =0;
+    while(t != NULL)
+    {   
+        a[i++]= t->data;
+        t = t->left;      
+    }
+    for(k=i-1;k>=0;k--)
+    {
+       cout<<a[k]<<" " ;
+    }
+    t = root->right;
+    i =0;
+    while(t != NULL)
+    {   
+        a[i++]= t->data;
+        t = t->right;      
+    }
+    for(k=0;k<i;k++)
+    {
+       cout<<a[k]<<" " ;
+    }
+  
+}
