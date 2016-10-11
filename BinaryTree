@@ -1,0 +1,42 @@
+class node:
+	def __init__(self, root):
+		self.data = root
+		self.left = None
+		self.right = None
+
+	def insertLeft(self, newnode):
+		if self.left == None:
+			self.left = node(newnode)
+		else:
+			t = node(newnode)
+			t.left = self.left
+			self.left = t 
+	
+	def insertRight(self, newnode):
+		if self.right == None:
+			self.right= node(newnode)
+		else:
+			t = node(newnode)
+			t.right=self.right
+			self.right = t 
+	def getRight(self):
+		return self.right
+	def getLeft(self):
+		return self.left
+	def getRoot(self):
+		return self.data
+	def setRoot(self, val):
+		self.data = val
+
+
+r = node('a')
+print(r.getRoot())
+print(r.getLeft())
+r.insertLeft('b')
+print(r.getLeft())
+print(r.getLeft().getRoot())
+r.insertRight('c')
+print(r.getRight())
+print(r.getRight().getRoot())
+r.getRight().setRoot('hello')
+print(r.getRight().getRoot())
