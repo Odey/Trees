@@ -1,0 +1,74 @@
+class vertex:
+	def __init__(self, id):
+		self.key= id
+		self.connectedto={}
+	
+	def addneighbour(self, newVertx, wgh=0):
+		self.connectedto[newVertx]=wgh
+	
+	def getname(self):
+		return self.key
+	
+	def getNeighors(self):
+		return self.connectedto.keys()
+	
+	def getweight(self,newVertx):
+		return self.connectedto[newVertx]
+
+class Graph:
+	def __init__(self):
+		self.vertices ={}
+		self.totalVertices = 0
+	
+	def addVertex(self, key):
+		ver = vertex(key)
+		self.vertices[key]= ver
+		self.totalVertices +=1
+		return ver
+	
+	def getVertex(self, key):
+		if key in self.vertices.keys():
+			return self.vertices[key]
+		else:
+			print("No such vertex present in the graph")
+			return None
+	
+	def getAll(self):
+		return self.vertices.keys()
+	
+	def addEdge(self, src, dst, wght):
+		if src not in self.vertices.keys():
+			s= self.addVertex(src)
+		if dst not in self.vertices.keys():
+			d = self.addVertex(dst)
+		self.vertices[src].addneighbour(self.vertices[dst],wght)
+		
+	def getConnection(self,key):
+		x = []
+		if key not in self.vertices.keys():
+			return None
+		for i in  self.vertices[key].getNeighors():
+			x.append(i.getname())
+		return key,x
+		
+	
+g = Graph()
+a = g.addVertex('a')
+b =g.addVertex('b')
+c = g.addVertex('c')
+d = g.addVertex('d')
+g.addEdge('a','b',1)
+g.addEdge('a','c',5)
+g.addEdge('b','c',7)
+g.addEdge('c','b',10)
+g.addEdge('c','f',10)
+print (g.getAll()) 
+print (g.getConnection('a'))
+
+
+			
+		
+		
+		
+	
+	
