@@ -10,3 +10,7 @@ def LevelOrderTraversal(root):
 			qu.append(newnode.getLeft())
 		if newnode.getRight():
 			qu.append(newnode.getRight())
+			
+		if newnode.getRight()== None and newnode.getLeft() == None:
+			print ("\nLeaf node", newnode.getData())
+	print("Max depth data", newnode.getData())
