@@ -1,0 +1,12 @@
+def LevelOrderTraversal(root):
+	if root == None:
+		return
+	qu = []
+	qu.append(root)
+	while qu:
+		newnode = qu.pop(0)
+		print (newnode.getData(), end= " " )
+		if newnode.getLeft():
+			qu.append(newnode.getLeft())
+		if newnode.getRight():
+			qu.append(newnode.getRight())
