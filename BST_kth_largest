@@ -1,0 +1,89 @@
+class node():
+	def __init__(self, key):
+		self.data = key
+		self.left = None
+		self.right = None
+	
+	def getData(self):
+		return self.data
+	
+	def setData(self, val):
+		self.data= val
+	
+	def getLeft(self):
+		return self.left
+	
+	def setleft(self, newnode):
+		self.left= newnode
+	
+	def getRight(self):
+		return self.right
+	
+	def setRight(self, newnode):
+		self.right= newnode
+	
+def BST_insert(root, val):
+	if root == None:
+		root = node(val)
+		return 
+	
+	if val > root.getData():
+		if root.getRight() == None:
+			root.setRight(node(val))
+		else:
+			BST_insert(root.getRight(), val)
+			
+		
+	elif val < root.getData():
+		if root.getLeft() == None:
+			root.setleft(node(val))
+		else:
+			BST_insert(root.getLeft(), val)
+	return
+
+count = 0
+def printInorder(root):
+	global count
+	if root == None:
+		return
+	count +=1
+	printInorder(root.getLeft())
+	print (root.getData(), end = " ")
+	printInorder(root.getRight())
+	return count
+
+ele = 0
+def kthLarrgest(root, k):
+	global ele
+	if root == None or ele> k:
+		return
+	if root:
+		if ele < k:
+			
+			kthLarrgest(root.getRight(),k)
+			ele +=1
+			if ele == k:
+				print(k, "th largest element is : ", root.getData())
+				#ele = 99
+				return
+			kthLarrgest(root.getLeft(), k)
+	return
+
+	
+
+root = node(10)
+BST_insert(root, 5)
+BST_insert(root,3)
+BST_insert(root, 7)
+BST_insert(root, 23)
+BST_insert(root, 15)
+BST_insert(root, 10)
+BST_insert(root, 24)
+print("Total node : ", printInorder(root))
+k= 7
+kthLarrgest(root, k)
+
+
+
+
+
