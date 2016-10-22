@@ -14,3 +14,25 @@ def LevelOrderTraversal(root):
 		if newnode.getRight()== None and newnode.getLeft() == None:
 			print ("\nLeaf node", newnode.getData())
 	print("Max depth data", newnode.getData())
+
+## in C++
+
+void levelOrder()
+{
+    NODE temp = root;
+    NODE q[20];
+    int i=0,k=0;
+    q[i++]=temp;
+
+    while(k<i){   //check  if array is empty
+        temp=q[k++];
+        cout<<temp->data << " ";
+        if(temp->left){
+            q[i++]=temp->left;
+        }
+        if(temp->right){
+            q[i++]= temp->right;
+        }
+    }
+
+}
