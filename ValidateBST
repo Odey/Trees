@@ -1,0 +1,19 @@
+void validate(NODE first){
+    if (first == NULL){
+        return;
+    }
+    else if(first->left == NULL or first->right== NULL){
+        return;
+    }
+    else if (first->data >first->right->data){
+        cout<<"False";
+        return;
+    }
+    else if(first->data < first->left->data){
+        cout<<"False";
+        return;
+    }
+    validate(first->left);
+    validate(first->right);
+    cout<<"True";
+}
