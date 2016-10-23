@@ -1,0 +1,31 @@
+void InorderSuccessor(NODE first, NODE SuccessorNode){  // SuccessorNode is the node for which we have to find the successor
+
+    if (SuccessorNode->right){
+        // find min in the the right subtree
+        NODE temp= SuccessorNode->right;
+        while(temp->left!=NULL){
+            temp= temp->left;
+        }
+        cout << "Successor of SuccessorNode is :" << temp->data;
+        return;
+    }
+    else{ // if there is no right subtree find the value next greater to the SuccessorNode
+        NODE succ;
+        while (first != NULL)
+        {
+            if (SuccessorNode->data < first->data)
+            {
+                succ = first;
+                first = first->left;
+            }
+            else if (SuccessorNode->data > first->data)
+                first = first->right;
+            else
+                break;
+        }
+
+        cout<< succ->data;
+
+    }
+
+}
