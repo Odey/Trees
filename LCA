@@ -1,0 +1,11 @@
+def LCA(root, n1, n2):
+	if root== None:
+		return -1
+	
+	if root.getdata() > max(n1.getdata(), n2.getdata()):  ##means root is greater than both the node thus, both node lies on the left side of BST
+		LCA(root.getleft(),n1,n2)  
+	elif root.getdata() < min(n1.getdata(), n2.getdata()):  ## means root is less than both the nodes and thus both nodes lies on the right side of the BST
+		LCA(root.getright(),n1,n2)
+	else:
+		return root  ## means one  node is in the left subtree and other node is in the right subtree and so the root is the least common node
+	
