@@ -1,0 +1,19 @@
+result = []
+
+def PathequalsSum(root, p_sum):
+	if root==None:
+		return False
+	if root.getLeft()==None and root.getRight()==None:
+		if (p_sum==root.getData()):
+			result.append(root.getData())
+			return True
+		else:
+			return False
+	
+	if(PathequalsSum(root.getLeft(), p_sum-root.getData())):
+		result.append(root.getData())
+		return True
+	if(PathequalsSum(root.getRight(), p_sum-root.getData())):
+		result.append(root.getData())
+		return True
+	return False
