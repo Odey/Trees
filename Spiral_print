@@ -1,0 +1,30 @@
+def Spiralprint(root):
+	
+	if root==None:
+		return
+	
+	stack1=[]
+	stack2=[]
+	stack1.append(root)  
+	
+	while stack1 || stack2:
+		while(stack1):
+			newnode = stack1.pop()
+		
+			if newnode.getLeft():
+				stack2.append(newnode.getLeft())
+			if newnode.getRight():
+				stack2.append(newnode.getRight())
+		
+			print(newnode.getdata(), end =" ")
+			
+		while(stack2):
+			newnode = stack2.pop()
+		
+			if newnode.getLeft():
+				stack1.append(newnode.getLeft())
+			if newnode.getRight():
+				stack1.append(newnode.getRight())
+		
+			print(newnode.getdata(), end =" ")
+		
