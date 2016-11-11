@@ -14,5 +14,5 @@ def BinaryTreeLCA(root,n1,n2):
 	if left !=None and right!=None:
 		return root
 	
-	return left!=None?left:right
+	return left if left!=None else right
 	
