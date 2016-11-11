@@ -1,0 +1,18 @@
+def BinaryTreeLCA(root,n1,n2):
+	if root==None:
+		return None
+	
+	if root==n1 || root==n2:
+		return root
+	
+	left = BinaryTreeLCA(root.getleft(),n1,n2)
+	right = BinaryTreeLCA(root.getright(),n1,n2)
+	
+	if left==None and right==None:
+		return null
+	
+	if left !=None and right!=None:
+		return root
+	
+	return left!=None?left:right
+	
